@@ -1,7 +1,5 @@
 import React from "react";
 import Widthg from "./Widthg";
-import players from "../RawData/players/players11";
-import tplayers from "../RawData/tplayers";
 import { useEffect, useState } from "react";
 
 const Control = (props) => {
@@ -49,10 +47,10 @@ const Control = (props) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="text-xl text-cyan-300 mb-6">
-        Total Goals in {tplayers[count].year}
+        Total Goals in {props.data[count].year}
       </div>
       <div className=" mb-4">
-        {tplayers[count].data.map((info) => {
+        {props.data[count].data.map((info) => {
           return (
             <Widthg
               key={Math.random()}
@@ -87,5 +85,16 @@ const Control = (props) => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(process.env.URL);
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 export default Control;
