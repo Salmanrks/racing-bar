@@ -16,7 +16,7 @@ export default function Home() {
       {show && <Control myfunc={clickHandler2}></Control>}
       {!show && (
         <div className="text-white mb-10 mx-8 text-center text-2xl grad">
-          It's a bar chart racing visualization of total goals scored by 7
+          Its a bar chart racing visualization of total goals scored by 7
           different football players in 2 different years only in club levels.
           International performance is not included here.And the data is
           collected from <span className=" font-bold">transfermarkt.com</span>
